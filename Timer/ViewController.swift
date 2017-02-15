@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-let start_time = 125
+let start_time = 3
 
 class ViewController: UIViewController {
 
@@ -68,6 +68,11 @@ class ViewController: UIViewController {
         display_minutes = String(format: "%02d", seconds / 60)
         display_seconds = String(format: "%02d", seconds % 60)
         timerLabel.text = "\(display_minutes):\(display_seconds)"
+        if seconds <= 0 {
+            timer.invalidate()
+            timerIsOn = false
+            seconds = start_time // Restarts timer properly when "Start" is pressed
+        }
         
     }
     
