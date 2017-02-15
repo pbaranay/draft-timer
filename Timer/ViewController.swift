@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         
         timer.invalidate()
         seconds = start_time
-        timerLabel.text = "\(seconds)"
+        timerLabel.text = "00:\(seconds)"
         timerIsOn = false
     }
     
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     func updateTimer() {
         
         seconds -= 1
-        timerLabel.text = "\(seconds)"
+        timerLabel.text = "00:\(seconds)"
         
     }
     
