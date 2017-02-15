@@ -6,9 +6,10 @@
 //  Copyright © 2017 Paul Baranay. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-let start_time = 45
+let start_time = 125
 
 class ViewController: UIViewController {
 
@@ -18,6 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var stopLabel: UIButton!
     
     var seconds = start_time
+    var display_minutes = String(format: "%02d", 0)
+    var display_seconds = String(format: "%02d", 0)
     var timer = Timer()
     var timerIsOn = false
     
@@ -34,7 +37,9 @@ class ViewController: UIViewController {
         
         timer.invalidate()
         seconds = start_time
-        timerLabel.text = "00:\(seconds)"
+        display_minutes = String(format: "%02d", seconds / 60)
+        display_seconds = String(format: "%02d", seconds % 60)
+        timerLabel.text = "\(display_minutes):\(display_seconds)"
         timerIsOn = false
     }
     
@@ -60,7 +65,9 @@ class ViewController: UIViewController {
     func updateTimer() {
         
         seconds -= 1
-        timerLabel.text = "00:\(seconds)"
+        display_minutes = String(format: "%02d", seconds / 60)
+        display_seconds = String(format: "%02d", seconds % 60)
+        timerLabel.text = "\(display_minutes):\(display_seconds)"
         
     }
     
